@@ -107,7 +107,7 @@ Set_1[2,4] = "v";
 Set_1[2,5] = "b";
 Set_1[2,6] = "n";
 Set_1[2,7] = "'";
-Set_1[2,8] = "SUPR";
+Set_1[2,8] = "SUPRESS";
 
 //Fourth row: I dunno what to do for these special keys:
 Set_1[3,0] = "OTHER";
@@ -140,6 +140,9 @@ Set_1[3,5] = "ENTER";
             <kind>1</kind>
             <string>///Create the keys:
 var This_key;
+var X_position = x;
+var Y_position = y;
+
 for(i=0;i&lt;array_height_2d(Set_1);i+=1){
     for(j=0;j&lt;array_length_2d(Set_1,i);j+=1){
         
@@ -149,18 +152,35 @@ for(i=0;i&lt;array_height_2d(Set_1);i+=1){
         switch(This_key.Key_value){
             //Here you can set custom Keycaps width and Height
             case "ENTER":
+                //Same height, 1.5 time the width;
+                This_key.Height = Keycaps_height;
+                This_key.Width =  Keycaps_width * 1.5;
                 
-                break;
+                X_position += Keycaps_width * 1.5;
+                Y_position += Keycaps_height;
+                break
+                
+            case "SUPRESS":
+                //Same height, 1.5 time the width;
+                This_key.Height = Keycaps_height;
+                This_key.Width =  Keycaps_width * 1.5;
+                
+                X_position += Keycaps_width * 1.5;
+                Y_position += Keycaps_height;
+                break
             
             default:
                 //Default height and width;
                 This_key.Height = Keycaps_height;
                 This_key.Width =  Keycaps_width;
                 
-                This_key.x = x+(j*Keycaps_width);
-                This_key.y = y+(i*Keycaps_height);
+                X_position += Keycaps_width;
+                Y_position += Keycaps_height;
                 break;
             }
+            
+        This_key.x = X_position;
+        This_key.y = Y_position;
             
         }
     }
