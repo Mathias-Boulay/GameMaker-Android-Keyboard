@@ -3,15 +3,78 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\Develpper_Console</extension>
+  </NewExtensions>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprites name="SPSE_console">
+      <sprite>sprites\sprite_console_font</sprite>
+    </sprites>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="SPSE_console">
+      <scripts name="NotUser">
+        <scripts name="drawing related">
+          <script>scripts\__spse_string_size.gml</script>
+          <script>scripts\__spse_text_converter_to_sprite_index.gml</script>
+          <script>scripts\__spse_draw_text_sprite_font.gml</script>
+          <script>scripts\__spse_draw_text_sprite_font_colored.gml</script>
+          <script>scripts\__spse_draw_text_sprite_font_slow.gml</script>
+          <script>scripts\__spse_data_type_to_color.gml</script>
+          <script>scripts\__spse_string_to_color.gml</script>
+          <script>scripts\__spse_watch_add.gml</script>
+        </scripts>
+        <script>scripts\__spse_commands_history_update.gml</script>
+        <script>scripts\__spse_logs_update.gml</script>
+        <script>scripts\__spse_reset_history_index.gml</script>
+        <script>scripts\__spse_execute_command.gml</script>
+        <script>scripts\__spse_tracked_instance_flush.gml</script>
+        <script>scripts\__spse_is_scope_global.gml</script>
+        <script>scripts\__spse_typeof.gml</script>
+        <script>scripts\__spse_transform_argument_type.gml</script>
+        <script>scripts\__spse_switch_extended_state.gml</script>
+      </scripts>
+      <scripts name="User">
+        <script>scripts\console_init.gml</script>
+        <script>scripts\console_destroy.gml</script>
+        <scripts name="Logs">
+          <script>scripts\console_show_error.gml</script>
+          <script>scripts\console_show_warning.gml</script>
+          <script>scripts\console_show_debug.gml</script>
+        </scripts>
+        <scripts name="settings">
+          <script>scripts\console_overlay_drawing.gml</script>
+          <script>scripts\console_followers_persistence.gml</script>
+          <script>scripts\console_debug_instance_visible.gml</script>
+          <script>scripts\console_all_instance_visible.gml</script>
+        </scripts>
+        <script>scripts\console_count.gml</script>
+        <script>scripts\console_create.gml</script>
+        <script>scripts\console_kill.gml</script>
+        <script>scripts\console_watch.gml</script>
+        <script>scripts\console_set.gml</script>
+        <script>scripts\console_track.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="SPSE_keyboard">
+      <scripts name="NotUser">
+        <script>scripts\__spse_keyboard_update_text.gml</script>
+        <script>scripts\__spse_keyboard_switch_panel.gml</script>
+        <script>scripts\__spse_create_panel.gml</script>
+      </scripts>
+    </scripts>
+  </scripts>
   <objects name="objects">
     <objects name="SPSE_keyboard">
       <object>objects\object_keyboard</object>
       <object>objects\object_keyboard_key</object>
+    </objects>
+    <objects name="SPSE_console">
+      <object>objects\object_main_console</object>
+      <object>objects\object_instance_follower</object>
     </objects>
   </objects>
   <rooms name="rooms">

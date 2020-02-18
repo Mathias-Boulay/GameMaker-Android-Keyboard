@@ -35,23 +35,36 @@ y = 1280-446;
 //Dimensions:
 Width = 720;
 Height = 446;
+Selected_set = Set_1;
+Switched_set = false;
 
-Keycaps_width = Width/10;
-Keycaps_height = Height/4;
+Keycaps_width = Width/10; //Divided by the number of keys in a row
+Keycaps_height = Height/4; //Divided by the number of rows.
 Keycaps_xoffset = 4;
 Keycaps_yoffset = 6;
 
 Keycaps_radius = 5;
+
+Keyboard_pressed_key = "";
+Keyboard_released_key = "";
+Keyboard_lastkey = "";
+Keyboard_text = "";
+
 
 
 //Colors:
 Background_color = c_blue;
 Keycaps_color = c_gray;
 Keycaps_color_pressed = c_aqua;
+Keycaps_text_color = c_black;
 
 //Visibility states:
 Background_visible = true;
 Keycaps_visible = true;
+
+
+
+alarm[11] = 10;
 </string>
           </argument>
         </arguments>
@@ -107,15 +120,51 @@ Set_1[2,4] = "v";
 Set_1[2,5] = "b";
 Set_1[2,6] = "n";
 Set_1[2,7] = "'";
-Set_1[2,8] = "SUPRESS";
+Set_1[2,8] = "DELETE";
 
 //Fourth row: I dunno what to do for these special keys:
 Set_1[3,0] = "OTHER";
 Set_1[3,1] = ",";
 Set_1[3,2] = "CHANGE LAYOUT";
-Set_1[3,3] = "SPACE";
+Set_1[3,3] = " ";
 Set_1[3,4] = ".";
 Set_1[3,5] = "ENTER";
+
+
+//Second set:
+Set_2[0,0] = "1";
+Set_2[0,1] = "2";
+Set_2[0,2] = "3";
+Set_2[0,3] = "4";
+Set_2[0,4] = "5";
+Set_2[0,5] = "6";
+Set_2[0,6] = "7";
+Set_2[0,7] = "8";
+Set_2[0,8] = "9";
+Set_2[0,9] = "0";
+
+Set_2[1,0] = "@";
+Set_2[1,1] = "#";
+Set_2[1,2] = "€";
+Set_2[1,3] = "$";
+Set_2[1,4] = "%";
+Set_2[1,5] = "&amp;";
+Set_2[1,6] = "-";
+Set_2[1,7] = "+";
+Set_2[1,8] = "(";
+Set_2[1,9] = ")";
+
+Set_2[2,0] = "=";
+Set_2[2,1] = "*";
+Set_2[2,2] = '"';
+Set_2[2,3] = "'";
+Set_2[2,4] = ":";
+Set_2[2,5] = ";";
+Set_2[2,6] = "!";
+Set_2[2,7] = "?";
+Set_2[2,8] = "DELETE";
+Set_2[2,9] = "=";
+
 </string>
           </argument>
         </arguments>
@@ -138,53 +187,7 @@ Set_1[3,5] = "ENTER";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create the keys:
-var This_key;
-var X_position = x;
-var Y_position = y;
-
-for(i=0;i&lt;array_height_2d(Set_1);i+=1){
-    for(j=0;j&lt;array_length_2d(Set_1,i);j+=1){
-        
-        This_key = instance_create(0,0,object_keyboard_key);
-        This_key.Key_value = Set_1[i,j];
-        
-        switch(This_key.Key_value){
-            //Here you can set custom Keycaps width and Height
-            case "ENTER":
-                //Same height, 1.5 time the width;
-                This_key.Height = Keycaps_height;
-                This_key.Width =  Keycaps_width * 1.5;
-                
-                X_position += Keycaps_width * 1.5;
-                Y_position += Keycaps_height;
-                break
-                
-            case "SUPRESS":
-                //Same height, 1.5 time the width;
-                This_key.Height = Keycaps_height;
-                This_key.Width =  Keycaps_width * 1.5;
-                
-                X_position += Keycaps_width * 1.5;
-                Y_position += Keycaps_height;
-                break
-            
-            default:
-                //Default height and width;
-                This_key.Height = Keycaps_height;
-                This_key.Width =  Keycaps_width;
-                
-                X_position += Keycaps_width;
-                Y_position += Keycaps_height;
-                break;
-            }
-            
-        This_key.x = X_position;
-        This_key.y = Y_position;
-            
-        }
-    }
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -206,7 +209,21 @@ for(i=0;i&lt;array_height_2d(Set_1);i+=1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>///Check which key is pressed and behave accordingly:
+if point_in_rectangle(mouse_x,mouse_y,x,y,x+Width,y+Height){
+    //If he is taping on the keyboard:
+    with(keyboard_key){
+        if point_in_rectangle(mouse_x,mouse_y,x,y,x+Width,y+Height){
+            //The key is being touched.
+            Pressed = true;
+            
+            object_keyboard.Keyboard_pressed_key = Key_value;
+            
+            break;
+            }
+        }
+    }
+</string>
           </argument>
         </arguments>
       </action>
@@ -230,8 +247,8 @@ for(i=0;i&lt;array_height_2d(Set_1);i+=1){
             <kind>1</kind>
             <string>draw_set_color(Background_color);
 draw_set_alpha(1);
-draw_rectangle(x,y,x+Width,y+Height,false);
-
+//draw_rectangle(x,y,x+Width,y+Height,false);
+/*
 draw_set_alpha(1);
 draw_set_color(c_green);
 for(i=0;i&lt;4;i+=1){
@@ -245,6 +262,7 @@ for(i=0;i&lt;4;i+=1){
                         
         }   
     }
+    */
 </string>
           </argument>
         </arguments>

@@ -27,12 +27,42 @@
             <kind>1</kind>
             <string>///Initialize values: has to be passed by the keyboard.
 
+
 Width = 0;
 Height = 0;
+
+Pressed = false;
 
 Key_value = "";
 x = 0;
 y = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Remove the Pressed state and set the released key
+if Pressed{
+    Pressed = !Pressed;
+    object_keyboard.Keyboard_released_key = Key_value;
+    }
 </string>
           </argument>
         </arguments>
@@ -55,7 +85,34 @@ y = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>///Draw your self as a key:
+
+//Draw the keycap:
+if object_keyboard.Keycaps_visible{
+    if Pressed{
+        draw_set_color(object_keyboard.Keycaps_color_pressed);
+        }
+    else{
+        draw_set_color(object_keyboard.Keycaps_color);
+        }
+    draw_roundrect_ext(
+                    x + object_keyboard.Keycaps_xoffset,
+                    y + object_keyboard.Keycaps_yoffset,
+                    x + Width - object_keyboard.Keycaps_xoffset,
+                    y + Height - object_keyboard.Keycaps_yoffset,
+                    object_keyboard.Keycaps_radius,
+                    object_keyboard.Keycaps_radius,
+                    false
+                    );
+    }
+    
+//Draw the key:
+draw_set_valign(fa_middle);
+draw_set_halign(fa_center);
+draw_set_color(object_keyboard.Keycaps_text_color);
+draw_text(x+(Width/2),y+(Height/2),Key_value);
+                
+</string>
           </argument>
         </arguments>
       </action>
