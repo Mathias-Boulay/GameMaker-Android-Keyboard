@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>TEXT = "";
+            <string>keyboard_create(0,556,480,298);
+TEXT = "";
 LASTKEY = ""
 PRESSED = ""
 RELEASED = "";

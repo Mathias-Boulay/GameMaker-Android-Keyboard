@@ -11,6 +11,13 @@
     <sprites name="SPSE_console">
       <sprite>sprites\sprite_console_font</sprite>
     </sprites>
+    <sprites name="SPSE_keyboard">
+      <sprite>sprites\sprite_key_enter</sprite>
+      <sprite>sprites\sprite_key_delete</sprite>
+      <sprite>sprites\sprite_key_other</sprite>
+      <sprite>sprites\sprite_key_maj</sprite>
+      <sprite>sprites\sprite_key_space</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -66,11 +73,34 @@
         <script>scripts\__spse_keyboard_create_panel.gml</script>
       </scripts>
       <scripts name="User">
-        <script>scripts\keyboard_get_text.gml</script>
-        <script>scripts\keyboard_get_lastkey.gml</script>
-        <script>scripts\keyboard_get_pressed_key.gml</script>
-        <script>scripts\keyboard_get_released_key.gml</script>
-        <script>scripts\keyboard_clear_text.gml</script>
+        <scripts name="Text">
+          <script>scripts\keyboard_get_text.gml</script>
+          <script>scripts\keyboard_clear_text.gml</script>
+          <script>scripts\keyboard_get_lastkey.gml</script>
+          <script>scripts\keyboard_get_pressed_key.gml</script>
+          <script>scripts\keyboard_get_released_key.gml</script>
+        </scripts>
+        <scripts name="Dimensions">
+          <scripts name="Positions">
+            <script>scripts\keyboard_set_from_top.gml</script>
+            <script>scripts\keyboard_set_from_bottom.gml</script>
+            <script>scripts\keyboard_set_from_left.gml</script>
+            <script>scripts\keyboard_set_from_right.gml</script>
+          </scripts>
+          <scripts name="Bounding boxes">
+            <script>scripts\keyboard_get_bbox_left.gml</script>
+            <script>scripts\keyboard_get_bbox_right.gml</script>
+            <script>scripts\keyboard_get_bbox_top.gml</script>
+            <script>scripts\keyboard_get_bbox_bottom.gml</script>
+          </scripts>
+          <script>scripts\keyboard_get_width.gml</script>
+          <script>scripts\keyboard_get_height.gml</script>
+          <script>scripts\keyboard_resize.gml</script>
+        </scripts>
+        <script>scripts\keyboard_create.gml</script>
+        <script>scripts\keyboard_set_keycap_radius.gml</script>
+        <script>scripts\keyboard_set_keycap_x_radius.gml</script>
+        <script>scripts\keyboard_set_keycap_y_radius.gml</script>
       </scripts>
     </scripts>
   </scripts>

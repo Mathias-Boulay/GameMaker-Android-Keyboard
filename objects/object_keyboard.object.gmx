@@ -65,7 +65,7 @@ Set_1[2,8] = "DELETE";
 //Fourth row: I dunno what to do for these special keys:
 Set_1[3,0] = "OTHER";
 Set_1[3,1] = ",";
-Set_1[3,2] = "CHANGE LAYOUT";
+Set_1[3,2] = "~";
 Set_1[3,3] = " ";
 Set_1[3,4] = ".";
 Set_1[3,5] = "ENTER";
@@ -85,8 +85,8 @@ Set_2[0,8] = "9";
 Set_2[0,9] = "0";
 //Second row
 Set_2[1,0] = "@";
-Set_2[1,1] = "#";
-Set_2[1,2] = "€";
+Set_2[1,1] = "\";
+Set_2[1,2] = "§";
 Set_2[1,3] = "$";
 Set_2[1,4] = "%";
 Set_2[1,5] = "&amp;";
@@ -110,8 +110,8 @@ Set_2[2,9] = "=";
 //Fourth row:
 Set_2[3,0] = "OTHER";
 Set_2[3,1] = ",";
-Set_2[3,2] = " ";
-Set_2[3,3] = "/";
+Set_2[3,2] = "/";
+Set_2[3,3] = " ";
 Set_2[3,4] = ".";
 Set_2[3,5] = "ENTER";
 
@@ -138,24 +138,25 @@ Set_2[3,5] = "ENTER";
             <string>///Initialize the keyboard with default values;
 //Normally the keyboard has to be called through keyboard_create script
 
-//Debug:
-x = 0;
-y = 1280-446;
 
-//Dimensions:
-Width = 720;
-Height = 446;
+//Default Dimensions:
+Width = 480;
+Height = 298;
+
 Selected_set = Set_1;
 Switched_set = false;
 
 Keyboard_font = font_keyboard_default_font;
+Keyboard_keys_per_row = 10;
+Keyboard_rows = 4;
 
-Keycaps_width = Width/10; //Divided by the number of keys in a row
-Keycaps_height = Height/4; //Divided by the number of rows.
+Keycaps_width = Width/Keyboard_keys_per_row; //Divided by the number of keys in a row
+Keycaps_height = Height/Keyboard_rows; //Divided by the number of rows.
 Keycaps_xoffset = 4;
 Keycaps_yoffset = 6;
 
-Keycaps_radius = 5;
+Keycaps_xradius = 5;
+Keycaps_yradius = 10;
 
 Keyboard_pressed_key = "";
 Keyboard_released_key = "";
@@ -167,42 +168,14 @@ Keyboard_maj = false;
 
 
 //Colors:
-Background_color = c_blue;
-Keycaps_color = c_gray;
-Keycaps_color_pressed = c_aqua;
+Background_color = make_color_rgb(236,239,241);
+Keycaps_color = make_color_rgb(236,239,241);
+Keycaps_color_pressed = make_color_rgb(224,227,229);
 Keycaps_text_color = c_black;
 
 //Visibility states:
 Background_visible = true;
 Keycaps_visible = true;
-
-
-
-alarm[11] = 10;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="11">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///__spse_create_panel();
-__spse_keyboard_create_panel();
 </string>
           </argument>
         </arguments>
@@ -268,6 +241,11 @@ for(i=0;i&lt;5;i++){
                         object_keyboard.Keyboard_pressed_key = Key_value;
                         object_keyboard.alarm[0] = 2;
                         
+                        //Special behavior in case of the delete key:
+                            if Key_value = "DELETE"{
+                                alarm[11] = floor(room_speed/2);
+                                }
+                        
                         __spse_keyboard_update_text(Key_value);
                         
                         break;
@@ -299,24 +277,12 @@ for(i=0;i&lt;5;i++){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(Background_color);
-draw_set_alpha(1);
-//draw_rectangle(x,y,x+Width,y+Height,false);
-/*
-draw_set_alpha(1);
-draw_set_color(c_green);
-for(i=0;i&lt;4;i+=1){
-    for(j=0;j&lt;10;j+=1){
-        X1 = x+(j*Keycaps_width)+Keycaps_xoffset;
-        Y1 = y+(i*Keycaps_height)+Keycaps_yoffset;
-        
-        X2 = x+((j+1)*Keycaps_width)-Keycaps_xoffset;
-        Y2 = y+((i+1)*Keycaps_height)-Keycaps_yoffset;
-        draw_roundrect_ext(X1,Y1,X2,Y2,Keycaps_radius,Keycaps_radius,true);
-                        
-        }   
+            <string>///Draw the background when set to visible.
+if Background_visible{
+    draw_set_alpha(1);
+    draw_set_color(Background_color);
+    draw_rectangle(x,y,x+Width-1,y+Height-1,false);
     }
-    */
 </string>
           </argument>
         </arguments>
