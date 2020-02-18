@@ -58,7 +58,7 @@ with(object_keyboard){
                     This_key.x = X_position;
                     break;
                     
-                case "SPACE":
+                case " ":
                     // 4 time the width:
                     This_key.Width =  Keycaps_width * 3.5;
                     This_key.x = X_position;

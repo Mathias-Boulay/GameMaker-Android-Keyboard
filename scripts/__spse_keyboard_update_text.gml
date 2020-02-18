@@ -2,6 +2,7 @@
 // This script will take the input and either add the Key value to text,
 // either behave according the special key.
 //The KeyValue must be a string.
+object_keyboard.Keyboard_lastkey = argument0;
 
 switch(argument0){
     

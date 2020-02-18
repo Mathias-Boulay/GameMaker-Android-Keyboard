@@ -25,66 +25,6 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initialize the keyboard with default values;
-//Normally the keyboard has to be called through keyboard_create script
-
-//Debug:
-x = 0;
-y = 1280-446;
-
-//Dimensions:
-Width = 720;
-Height = 446;
-Selected_set = Set_1;
-Switched_set = false;
-
-Keycaps_width = Width/10; //Divided by the number of keys in a row
-Keycaps_height = Height/4; //Divided by the number of rows.
-Keycaps_xoffset = 4;
-Keycaps_yoffset = 6;
-
-Keycaps_radius = 5;
-
-Keyboard_pressed_key = "";
-Keyboard_released_key = "";
-Keyboard_lastkey = "";
-Keyboard_text = "";
-
-
-
-//Colors:
-Background_color = c_blue;
-Keycaps_color = c_gray;
-Keycaps_color_pressed = c_aqua;
-Keycaps_text_color = c_black;
-
-//Visibility states:
-Background_visible = true;
-Keycaps_visible = true;
-
-
-
-alarm[11] = 10;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Add a bunch of keyboard sets:
 
 //First row:
@@ -132,6 +72,7 @@ Set_1[3,5] = "ENTER";
 
 
 //Second set:
+//First row
 Set_2[0,0] = "1";
 Set_2[0,1] = "2";
 Set_2[0,2] = "3";
@@ -142,7 +83,7 @@ Set_2[0,6] = "7";
 Set_2[0,7] = "8";
 Set_2[0,8] = "9";
 Set_2[0,9] = "0";
-
+//Second row
 Set_2[1,0] = "@";
 Set_2[1,1] = "#";
 Set_2[1,2] = "€";
@@ -154,6 +95,7 @@ Set_2[1,7] = "+";
 Set_2[1,8] = "(";
 Set_2[1,9] = ")";
 
+//Third row
 Set_2[2,0] = "=";
 Set_2[2,1] = "*";
 Set_2[2,2] = '"';
@@ -165,6 +107,76 @@ Set_2[2,7] = "?";
 Set_2[2,8] = "DELETE";
 Set_2[2,9] = "=";
 
+//Fourth row:
+Set_2[3,0] = "OTHER";
+Set_2[3,1] = ",";
+Set_2[3,2] = " ";
+Set_2[3,3] = "/";
+Set_2[3,4] = ".";
+Set_2[3,5] = "ENTER";
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize the keyboard with default values;
+//Normally the keyboard has to be called through keyboard_create script
+
+//Debug:
+x = 0;
+y = 1280-446;
+
+//Dimensions:
+Width = 720;
+Height = 446;
+Selected_set = Set_1;
+Switched_set = false;
+
+Keyboard_font = font_keyboard_default_font;
+
+Keycaps_width = Width/10; //Divided by the number of keys in a row
+Keycaps_height = Height/4; //Divided by the number of rows.
+Keycaps_xoffset = 4;
+Keycaps_yoffset = 6;
+
+Keycaps_radius = 5;
+
+Keyboard_pressed_key = "";
+Keyboard_released_key = "";
+Keyboard_lastkey = "";
+Keyboard_text = "";
+
+
+
+//Colors:
+Background_color = c_blue;
+Keycaps_color = c_gray;
+Keycaps_color_pressed = c_aqua;
+Keycaps_text_color = c_black;
+
+//Visibility states:
+Background_visible = true;
+Keycaps_visible = true;
+
+
+
+alarm[11] = 10;
 </string>
           </argument>
         </arguments>
@@ -187,12 +199,39 @@ Set_2[2,9] = "=";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>///__spse_create_panel();
+__spse_keyboard_create_panel();
+</string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="4">
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reset the pressed/released state of the keyboard.
+Keyboard_pressed_key = "";
+Keyboard_released_key = "";
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -212,12 +251,15 @@ Set_2[2,9] = "=";
             <string>///Check which key is pressed and behave accordingly:
 if point_in_rectangle(mouse_x,mouse_y,x,y,x+Width,y+Height){
     //If he is taping on the keyboard:
-    with(keyboard_key){
+    with(object_keyboard_key){
         if point_in_rectangle(mouse_x,mouse_y,x,y,x+Width,y+Height){
             //The key is being touched.
             Pressed = true;
             
             object_keyboard.Keyboard_pressed_key = Key_value;
+            object_keyboard.alarm[0] = 1;
+            
+            __spse_keyboard_update_text(Key_value);
             
             break;
             }

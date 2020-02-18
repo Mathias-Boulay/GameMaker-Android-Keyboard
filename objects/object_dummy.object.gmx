@@ -25,35 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//room_set_height(room_test,display_get_height());
-//room_set_width(room_test,display_get_width());
-
-show_debug_message("room height= "+string(room_height));
-show_debug_message("room width= "+string(room_width));
-alarm[0] =2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>room_goto_next();
+            <string>TEXT = "";
+LASTKEY = ""
+PRESSED = ""
+RELEASED = "";
 </string>
           </argument>
         </arguments>
@@ -76,7 +51,39 @@ alarm[0] =2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>TEXT = keyboard_get_text();
+LASTKEY = keyboard_get_lastkey();
+PRESSED = keyboard_get_pressed_key();
+RELEASED = keyboard_get_released_key();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_text(10,10,TEXT);
+draw_text(10,40,LASTKEY);
+draw_text(10,70,PRESSED);
+draw_text(10,100,RELEASED);
+</string>
           </argument>
         </arguments>
       </action>

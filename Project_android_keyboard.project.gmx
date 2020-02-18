@@ -63,11 +63,26 @@
       <scripts name="NotUser">
         <script>scripts\__spse_keyboard_update_text.gml</script>
         <script>scripts\__spse_keyboard_switch_panel.gml</script>
-        <script>scripts\__spse_create_panel.gml</script>
+        <script>scripts\__spse_keyboard_create_panel.gml</script>
+      </scripts>
+      <scripts name="User">
+        <script>scripts\keyboard_get_text.gml</script>
+        <script>scripts\keyboard_get_lastkey.gml</script>
+        <script>scripts\keyboard_get_pressed_key.gml</script>
+        <script>scripts\keyboard_get_released_key.gml</script>
+        <script>scripts\keyboard_clear_text.gml</script>
       </scripts>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <fonts name="SPSE_keyboard">
+      <font>fonts\font_keyboard_default_font</font>
+    </fonts>
+  </fonts>
   <objects name="objects">
+    <objects name="dummy_objects">
+      <object>objects\object_dummy</object>
+    </objects>
     <objects name="SPSE_keyboard">
       <object>objects\object_keyboard</object>
       <object>objects\object_keyboard_key</object>

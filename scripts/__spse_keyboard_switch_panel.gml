@@ -10,3 +10,4 @@ with(object_keyboard){
         Selected_set = Set_1;
         }
     }
+__spse_keyboard_create_panel();
