@@ -3,5 +3,6 @@
 if instance_exists(object_keyboard){
     with(object_keyboard){
         x = real(argument0)-Width+1;
+        __spse_keyboard_synchronize();
         }
     }
