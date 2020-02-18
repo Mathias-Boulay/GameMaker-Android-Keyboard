@@ -162,6 +162,8 @@ Keyboard_released_key = "";
 Keyboard_lastkey = "";
 Keyboard_text = "";
 
+Keyboard_maj = false;
+
 
 
 //Colors:
@@ -231,7 +233,7 @@ Keyboard_released_key = "";
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="53">
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -249,19 +251,29 @@ Keyboard_released_key = "";
           <argument>
             <kind>1</kind>
             <string>///Check which key is pressed and behave accordingly:
-if point_in_rectangle(mouse_x,mouse_y,x,y,x+Width,y+Height){
-    //If he is taping on the keyboard:
-    with(object_keyboard_key){
-        if point_in_rectangle(mouse_x,mouse_y,x,y,x+Width,y+Height){
-            //The key is being touched.
-            Pressed = true;
-            
-            object_keyboard.Keyboard_pressed_key = Key_value;
-            object_keyboard.alarm[0] = 1;
-            
-            __spse_keyboard_update_text(Key_value);
-            
-            break;
+
+for(i=0;i&lt;5;i++){
+    if device_mouse_check_button_pressed(i,mb_any){
+        Mouse_x = device_mouse_x(i);
+        Mouse_y = device_mouse_y(i);
+        if point_in_rectangle(Mouse_x,Mouse_y,x,y,x+Width,y+Height){
+            //If he is taping on the keyboard:
+            with(object_keyboard_key){
+                if point_in_rectangle(object_keyboard.Mouse_x,object_keyboard.Mouse_y,x,y,x+Width,y+Height){
+                if !Pressed{
+                        //The key is being touched.
+                        Pressed = true;
+                        Mouse_id = other.i;
+                        
+                        object_keyboard.Keyboard_pressed_key = Key_value;
+                        object_keyboard.alarm[0] = 2;
+                        
+                        __spse_keyboard_update_text(Key_value);
+                        
+                        break;
+                        }
+                    }
+                }
             }
         }
     }

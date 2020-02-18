@@ -26,9 +26,18 @@ switch(argument0){
         //Remove the last char:
         object_keyboard.Keyboard_text = string_copy(object_keyboard.Keyboard_text,1,string_length(object_keyboard.Keyboard_text)-1);
         break;
+        
+    case "MAJ":
+        object_keyboard.Keyboard_maj = !object_keyboard.Keyboard_maj;
+        break;
     
     default:
-        object_keyboard.Keyboard_text += argument0;
+        if object_keyboard.Keyboard_maj{
+            object_keyboard.Keyboard_text += string_upper(argument0);
+            }
+        else{
+            object_keyboard.Keyboard_text += argument0;
+            }
         break;
         
     }

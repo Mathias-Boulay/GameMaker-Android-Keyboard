@@ -30,7 +30,7 @@
 
 Width = 0;
 Height = 0;
-
+Mouse_id = -1;
 Pressed = false;
 
 Key_value = "";
@@ -41,7 +41,7 @@ y = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="56">
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -60,10 +60,14 @@ y = 0;
             <kind>1</kind>
             <string>///Remove the Pressed state and set the released key
 if Pressed{
-    Pressed = !Pressed;
-    object_keyboard.Keyboard_released_key = Key_value;
-    object_keyboard.alarm[0] = 1;
+    if device_mouse_check_button_released(Mouse_id,mb_any){
+        Pressed = false;
+        Mouse_id = -1;
+        object_keyboard.Keyboard_released_key = Key_value;
+        object_keyboard.alarm[0] = 2;
+        }
     }
+    
 </string>
           </argument>
         </arguments>
@@ -112,7 +116,17 @@ draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 draw_set_color(object_keyboard.Keycaps_text_color);
 draw_set_font(object_keyboard.Keyboard_font);
-draw_text(x+(Width/2),y+(Height/2),Key_value);
+if sprite_index = -1{
+    if object_keyboard.Keyboard_maj{
+        draw_text(x+(Width/2),y+(Height/2),string_upper(Key_value));
+        }
+    else{
+        draw_text(x+(Width/2),y+(Height/2),Key_value);
+        }
+    }
+else{
+    draw_sprite(sprite_index,object_keyboard.Keyboard_maj,x+(Width/2),y+(Height/2));  
+    }
                 
 </string>
           </argument>
