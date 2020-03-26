@@ -30,6 +30,8 @@ TEXT = "";
 LASTKEY = ""
 PRESSED = ""
 RELEASED = "";
+
+show_debug_overlay(true);
 </string>
           </argument>
         </arguments>

@@ -283,6 +283,52 @@ if Background_visible{
     draw_set_color(Background_color);
     draw_rectangle(x,y,x+Width-1,y+Height-1,false);
     }
+
+//Draw the keycap:
+draw_set_color(object_keyboard.Keycaps_color);
+with(object_keyboard_key){
+    
+    if object_keyboard.Keycaps_visible{
+        if Pressed{
+            draw_set_color(object_keyboard.Keycaps_color_pressed);
+            }
+        else{
+            draw_set_color(object_keyboard.Keycaps_color);
+            }
+        
+        draw_roundrect_ext(
+                        x + object_keyboard.Keycaps_xoffset,
+                        y + object_keyboard.Keycaps_yoffset,
+                        x + Width - object_keyboard.Keycaps_xoffset,
+                        y + Height - object_keyboard.Keycaps_yoffset,
+                        object_keyboard.Keycaps_xradius,
+                        object_keyboard.Keycaps_yradius,
+                        false
+                        );
+        }
+    
+    }
+    
+//Draw the key:
+draw_set_valign(fa_middle);
+draw_set_halign(fa_center);
+draw_set_color(object_keyboard.Keycaps_text_color);
+draw_set_font(object_keyboard.Keyboard_font);
+
+with(object_keyboard_key){
+    if sprite_index = -1{
+        if object_keyboard.Keyboard_maj{
+            draw_text(x+(Width/2),y+(Height/2),string_upper(Key_value));
+            }
+        else{
+            draw_text(x+(Width/2),y+(Height/2),Key_value);
+            }
+        }
+    else{
+        draw_sprite(sprite_index,object_keyboard.Keyboard_maj,x+(Width/2),y+(Height/2));  
+        }
+    
+    }
 </string>
           </argument>
         </arguments>
