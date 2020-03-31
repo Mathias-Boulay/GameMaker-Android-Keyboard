@@ -176,6 +176,9 @@ Keycaps_text_color = c_black;
 //Visibility states:
 Background_visible = true;
 Keycaps_visible = true;
+
+//Draw surface:
+Keyboard_surface = -1;
 </string>
           </argument>
         </arguments>
@@ -278,56 +281,106 @@ for(i=0;i&lt;5;i++){
           <argument>
             <kind>1</kind>
             <string>///Draw the background when set to visible.
-if Background_visible{
-    draw_set_alpha(1);
-    draw_set_color(Background_color);
-    draw_rectangle(x,y,x+Width-1,y+Height-1,false);
-    }
+draw_set_alpha(1);
 
-//Draw the keycap:
-draw_set_color(object_keyboard.Keycaps_color);
-with(object_keyboard_key){
+if !surface_exists(Keyboard_surface){
+    Keyboard_surface = surface_create(Width,Height);
+    surface_set_target(Keyboard_surface);
     
-    if object_keyboard.Keycaps_visible{
-        if Pressed{
-            draw_set_color(object_keyboard.Keycaps_color_pressed);
-            }
-        else{
-            draw_set_color(object_keyboard.Keycaps_color);
+    if Background_visible{
+        draw_set_color(Background_color);
+        draw_rectangle(0,0,Width,Height,false);
+        //draw_roundrect_ext(0,0,Width,Height,Keyboard_xradius,Keyboard_yradius,false);
+        }
+    
+    draw_set_color(Keycaps_color);
+    if Keycaps_visible{
+        draw_set_colour(Keycaps_color);
+        draw_set_colour_write_enable(true,true,true,false);
+        with(object_keyboard_key){  
+            var X_dif = x - other.x;
+            var Y_dif = y - other.y;
+            draw_roundrect_ext(
+                            round(X_dif + object_keyboard.Keycaps_xoffset),
+                            round(Y_dif + object_keyboard.Keycaps_yoffset),
+                            round(X_dif + Width - object_keyboard.Keycaps_xoffset),
+                            round(Y_dif + Height - object_keyboard.Keycaps_yoffset),
+                            object_keyboard.Keycaps_xradius,
+                            object_keyboard.Keycaps_yradius,
+                            false
+                            );
             }
         
-        draw_roundrect_ext(
-                        x + object_keyboard.Keycaps_xoffset,
-                        y + object_keyboard.Keycaps_yoffset,
-                        x + Width - object_keyboard.Keycaps_xoffset,
-                        y + Height - object_keyboard.Keycaps_yoffset,
-                        object_keyboard.Keycaps_xradius,
-                        object_keyboard.Keycaps_yradius,
-                        false
-                        );
         }
     
-    }
+    //Draw the key:
+    draw_set_valign(fa_middle);
+    draw_set_halign(fa_center);
     
-//Draw the key:
-draw_set_valign(fa_middle);
-draw_set_halign(fa_center);
-draw_set_color(object_keyboard.Keycaps_text_color);
-draw_set_font(object_keyboard.Keyboard_font);
-
-with(object_keyboard_key){
-    if sprite_index = -1{
-        if object_keyboard.Keyboard_maj{
-            draw_text(x+(Width/2),y+(Height/2),string_upper(Key_value));
+    draw_set_color(Keycaps_text_color);
+    draw_set_font(Keyboard_font);
+    
+    with(object_keyboard_key){
+        var X_dif = x - other.x;
+        var Y_dif = y - other.y;
+        if sprite_index = -1{
+            if object_keyboard.Keyboard_maj{
+                draw_text(round(X_dif + (Width/2)),round(Y_dif + (Height/2)),string_upper(Key_value));
+                }
+            else{
+                draw_text(round(X_dif + (Width/2)),round(Y_dif + (Height/2)),Key_value);
+                }
             }
         else{
-            draw_text(x+(Width/2),y+(Height/2),Key_value);
+            draw_sprite(sprite_index,object_keyboard.Keyboard_maj,round(X_dif + (Width/2)),round(Y_dif + (Height/2)));  
+            }
+        
+        }
+        
+        
+        
+        
+    surface_reset_target();
+    draw_set_colour_write_enable(true,true,true,true);
+    }
+
+//Draw the surface:
+draw_surface(Keyboard_surface,x,y);
+
+//Draw the keycaps and the letters only if needed.
+if Keycaps_visible{
+    with(object_keyboard_key){
+    
+        if Pressed{
+            draw_set_color(object_keyboard.Keycaps_color_pressed);
+            
+            draw_roundrect_ext(
+                            round(x + object_keyboard.Keycaps_xoffset),
+                            round(y + object_keyboard.Keycaps_yoffset),
+                            round(x + Width - object_keyboard.Keycaps_xoffset),
+                            round(y + Height - object_keyboard.Keycaps_yoffset),
+                            object_keyboard.Keycaps_xradius,
+                            object_keyboard.Keycaps_yradius,
+                            false
+                            );
+                            
+                draw_set_valign(fa_middle);
+                draw_set_halign(fa_center);
+                draw_set_color(object_keyboard.Keycaps_text_color);
+                draw_set_font(object_keyboard.Keyboard_font);
+                if sprite_index = -1{
+                    if object_keyboard.Keyboard_maj{
+                        draw_text(round(x + (Width/2)),round(y + (Height/2)),string_upper(Key_value));
+                        }
+                    else{
+                        draw_text(round(x + (Width/2)),round(y + (Height/2)),Key_value);
+                        }
+                    }
+                else{
+                    draw_sprite(sprite_index,object_keyboard.Keyboard_maj,round(x + (Width/2)),round(y + (Height/2)));  
+                    }
             }
         }
-    else{
-        draw_sprite(sprite_index,object_keyboard.Keyboard_maj,x+(Width/2),y+(Height/2));  
-        }
-    
     }
 </string>
           </argument>

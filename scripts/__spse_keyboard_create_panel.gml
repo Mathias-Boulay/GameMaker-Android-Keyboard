@@ -23,34 +23,29 @@ with(object_keyboard){
                 case "ENTER":
                     // 1.5 time the width;
                     This_key.Width =  Keycaps_width * 1.5;
-                    This_key.x = X_position;
                     This_key.sprite_index = sprite_key_enter;
                     break;
                     
                 case "=":
                     // 1.5 time the width;
                     This_key.Width =  Keycaps_width * 1.5;
-                    This_key.x = X_position;
                     break;
                     
                 case "DELETE":
                     //1.5 time the width;
                     This_key.Width =  Keycaps_width * 1.5;
-                    This_key.x = X_position;
                     This_key.sprite_index = sprite_key_delete;
                     break;
                     
                 case "MAJ":
                     //1.5 time the width;
                     This_key.Width =  Keycaps_width * 1.5;
-                    This_key.x = X_position;
                     This_key.sprite_index = sprite_key_maj;
                     break;
                     
                 case "OTHER":
                     //1.5 time the width;
                     This_key.Width =  Keycaps_width * 1.5;
-                    This_key.x = X_position;
                     This_key.sprite_index = sprite_key_other;
                     break;
                     
@@ -58,17 +53,16 @@ with(object_keyboard){
                 case " ": //SPACE
                     // 4 time the width:
                     This_key.Width =  Keycaps_width * 4;
-                    This_key.x = X_position;
                     This_key.sprite_index = sprite_key_space;
                     break;
                 
                 default:
                     //Default height and width;
                     This_key.Width =  Keycaps_width;
-                    This_key.x = X_position;
                     break;
                 }
             //Progress in the row:
+            This_key.x = X_position;
             X_position += This_key.Width;
             //Same height for all keys.    
             This_key.Height = Keycaps_height;
@@ -80,3 +74,4 @@ with(object_keyboard){
         }
         
     }
+__spse_keyboard_reset_surface();

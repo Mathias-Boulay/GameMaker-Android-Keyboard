@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>keyboard_create(0,556,480,298);
+keyboard_set_keycaps_color(c_lime);
 TEXT = "";
 LASTKEY = ""
 PRESSED = ""

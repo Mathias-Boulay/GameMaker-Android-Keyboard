@@ -29,6 +29,7 @@ switch(argument0){
         
     case "MAJ":
         object_keyboard.Keyboard_maj = !object_keyboard.Keyboard_maj;
+        __spse_keyboard_reset_surface();
         break;
     
     default:
