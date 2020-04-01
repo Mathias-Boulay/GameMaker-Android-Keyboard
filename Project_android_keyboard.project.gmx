@@ -5,6 +5,7 @@
   </Configs>
   <NewExtensions>
     <extension index="0">extensions\SPSE_android_keyboard</extension>
+    <extension index="1">extensions\Android_Keyboard_v2</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
