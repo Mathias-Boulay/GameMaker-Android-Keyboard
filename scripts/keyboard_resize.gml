@@ -1,4 +1,7 @@
 ///keyboard_resize(Width,Height);
+
+//This function resizes the keyboard with the given width and height.
+
 if instance_exists(object_keyboard){
     with(object_keyboard){
         Width = abs(real(argument0));

@@ -1,4 +1,7 @@
 ///keyboard_set_keycap_x_radius(Radius);
+
+//This functions sets the x radius of the keycaps layer;
+
 if instance_exists(object_keyboard){
     with(object_keyboard){
         Keycaps_xradius = real(argument0);
