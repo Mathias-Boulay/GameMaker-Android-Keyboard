@@ -290,13 +290,13 @@ if !surface_exists(Keyboard_surface){
     if Background_visible{
         draw_set_color(Background_color);
         draw_rectangle(0,0,Width,Height,false);
-        //draw_roundrect_ext(0,0,Width,Height,Keyboard_xradius,Keyboard_yradius,false);
+        draw_set_colour_write_enable(true,true,true,false);
         }
     
     draw_set_color(Keycaps_color);
     if Keycaps_visible{
         draw_set_colour(Keycaps_color);
-        draw_set_colour_write_enable(true,true,true,false);
+        
         with(object_keyboard_key){  
             var X_dif = x - other.x;
             var Y_dif = y - other.y;
