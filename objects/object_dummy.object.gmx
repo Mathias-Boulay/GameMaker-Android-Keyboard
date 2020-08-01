@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>keyboard_create(0,556,480,298);
-keyboard_set_keycaps_color(c_lime);
 TEXT = "";
 LASTKEY = ""
 PRESSED = ""
@@ -83,10 +82,10 @@ RELEASED = keyboard_get_released_key();
             <kind>1</kind>
             <string>draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-draw_text(10,10,TEXT);
-draw_text(10,40,LASTKEY);
-draw_text(10,70,PRESSED);
-draw_text(10,100,RELEASED);
+draw_text(10,10,"Typed text: " + TEXT);
+draw_text(10,40,"Last pressed key: " + LASTKEY);
+draw_text(10,70,"Pressed key: " + PRESSED);
+draw_text(10,100,"Released key: " + RELEASED);
 </string>
           </argument>
         </arguments>
