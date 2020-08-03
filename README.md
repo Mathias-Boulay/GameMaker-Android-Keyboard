@@ -148,6 +148,11 @@ The keyboard have many visual properties that can be customized.
 <br>
 
 ## Keyboard Size
+
+<details>
+
+<summary></summary>
+
 ### Resize the keyboard
     keyboard_resize(Width, Height);
 
@@ -160,7 +165,14 @@ returns: real number
 
 <br>
 
+</details>
+
 ## Keyboard background
+
+<details>
+
+<summary></summary>
+
 ### Background state
     keyboard_set_background_visible(Boolean);
 returns: nothing
@@ -175,27 +187,67 @@ returns: nothing
     keyboard_get_background_color();
 returns: color
 
+</details>
+
 ## Keyboard font
+
+<details>
+
+<summary></summary>
+
 ### Font used
+
+<details>
+
+<summary></summary>
+
     keyboard_set_font(Font);
 returns: nothing
 
     keyboard_get_font();
 returns: Font index
 
+</details>
+
 ### Font color
+
+<details>
+
+<summary></summary>
+
      keyboard_set_text_color(Color);
 returns: nothing
 
     keyboard_get_text_color();
 returns: color
 
+</details>
+
+</details>
+
 ## Keyboard keycaps
-###State
+
+<details>
+
+<summary></summary>
+
+### State
+
+<details>
+
+<summary></summary>
+
     keyboard_set_keycaps_visible(boolean);
 returns: nothing
 
+</details>
+
 ### Corners
+
+<details>
+
+<summary></summary>
+
     keyboard_set_keycaps_radius(real_number);
 returns: nothing
 
@@ -205,7 +257,14 @@ If desired, you can set the radius on each axis individually.
 	keyboard_set_keycaps_y_radius(Radius);
 returns: nothing
 
+</details>
+
 ### Offsets
+
+<details>
+
+<summary></summary>
+
     keyboard_set_keycaps_offset(Offset);
 returns: nothing
 
@@ -215,15 +274,34 @@ If desired, you can set the offset on each axis individually.
 	keyboard_set_keycaps_y_offset(Offset);
 returns: nothing
 
+</details>
+
 ### Colors
+
+<details>
+
+<summary></summary>
+
 #### Idle state
+
+<details>
+
+<summary></summary>
+
     keyboard_set_keycaps_color(Color);
 returns: nothing
 
     keyboard_get_keycaps_color();
 returns: color
 
+</details>
+
 #### Pressed state
+
+<details>
+
+<summary></summary>
+
     keyboard_set_keycaps_pressed_color(Color);
 returns: nothing
 
@@ -233,6 +311,12 @@ returns: color
 
 <br>
 <br>
+
+</details>
+
+</details>
+
+</details>
 
 </details>
 
