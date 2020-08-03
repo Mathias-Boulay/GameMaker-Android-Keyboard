@@ -7,14 +7,14 @@ Furthermore, paid extensions were for the **native keyboard**, which means we ne
 
 So I spent 20 initial hours creating this keyboard, and less than 4 a few days after to fix few bugs and optimize the project.
 
-##Features
+## Features
 * Fast and easy to setup !
 * Highly customizable through simple and straightforward ~~functions~~ scripts !
 * Minimal performance impact on your game !
 * Supports up 5 keys at the same time !
 * Compatible both Android and IOS !
 
-#Setup
+# Setup
 ### Create the keyboard
     keyboard_create(Left_position, Top_position, Width, Height);
 
@@ -99,7 +99,7 @@ The keyboard have many visual properties that can be customized.
 ###Resize the keyboard
     keyboard_resize(Width, Height);
 
-###Get keyboard size
+### Get keyboard size
     keyboard_get_width();
 returns: real number
 
@@ -108,38 +108,38 @@ returns: real number
 
 <br>
 
-##Keyboard background
-###Background state
+## Keyboard background
+### Background state
     keyboard_set_background_visible(Boolean);
 returns: nothing
 
     keyboard_get_background_visible();
 returns: boolean
 
-###Background color
+### Background color
     keyboard_set_background_color(Color);
 returns: nothing
 
     keyboard_get_background_color();
 returns: color
 
-##Keyboard font
-###Font used
+## Keyboard font
+### Font used
     keyboard_set_font(Font);
 returns: nothing
 
     keyboard_get_font();
 returns: Font index
 
-###Font color
+### Font color
      keyboard_set_text_color(Color);
 returns: nothing
 
     keyboard_get_text_color();
 returns: color
 
-##Keyboard keycaps
-###Corners
+## Keyboard keycaps
+### Corners
     keyboard_set_keycaps_radius(real_number);
 returns: nothing
 
@@ -149,7 +149,7 @@ If desired, you can set the radius on each axis individually.
 	keyboard_set_keycaps_y_radius(Radius);
 returns: nothing
 
-###offsets
+### offsets
     keyboard_set_keycaps_offset(Offset);
 returns: nothing
 
