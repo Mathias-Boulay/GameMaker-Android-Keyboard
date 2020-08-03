@@ -143,6 +143,10 @@ returns: nothing
 returns: color
 
 ## Keyboard keycaps
+###State
+    keyboard_set_keycaps_visible(boolean);
+returns: nothing
+
 ### Corners
     keyboard_set_keycaps_radius(real_number);
 returns: nothing
@@ -153,7 +157,7 @@ If desired, you can set the radius on each axis individually.
 	keyboard_set_keycaps_y_radius(Radius);
 returns: nothing
 
-### offsets
+### Offsets
     keyboard_set_keycaps_offset(Offset);
 returns: nothing
 
@@ -163,6 +167,20 @@ If desired, you can set the offset on each axis individually.
 	keyboard_set_keycaps_y_offset(Offset);
 returns: nothing
 
+### Colors
+#### Idle state
+    keyboard_set_keycaps_color(Color);
+returns: nothing
+
+    keyboard_get_keycaps_color();
+returns: color
+
+#### Pressed state
+    keyboard_set_keycaps_pressed_color(Color);
+returns: nothing
+
+    keyboard_get_keycaps_pressed_color();
+returns: color
 
 
 
