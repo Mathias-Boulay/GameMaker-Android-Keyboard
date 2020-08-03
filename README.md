@@ -30,7 +30,9 @@ This function creates a keyboard which
     keyboard_destroy();
 
 <br>
+
 ------------
+
 <br>
 
 # Obtaining key presses
@@ -98,7 +100,7 @@ The keyboard have many visual properties that can be customized.
 <br>
 
 ## Keyboard Size
-###Resize the keyboard
+### Resize the keyboard
     keyboard_resize(Width, Height);
 
 ### Get keyboard size
