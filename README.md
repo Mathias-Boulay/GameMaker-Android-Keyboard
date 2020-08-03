@@ -18,6 +18,8 @@ So I spent 20 initial hours creating this keyboard, and less than 4 a few days a
 ### Create the keyboard
     keyboard_create(Left_position, Top_position, Width, Height);
 
+This function creates a keyboard which 
+
 ### Get keyboard text
     keyboard_get_text();
 
@@ -28,13 +30,67 @@ So I spent 20 initial hours creating this keyboard, and less than 4 a few days a
     keyboard_destroy();
 
 <br>
-
 ------------
+<br>
 
+# Obtaining key presses
 
-## Obtaining key presses
+### Obtaining last pressed key
     keyboard_get_lastkey();
+
+###Obtaining pressed key
     keyboard_get_pressed_key();
+
+###Obtaining released key
     keyboard_get_released_key();
+
+
+<br>
+------------
+<br>
+# Keyboard coordinates
+The x and y coordinates represents the top left of the keyboard.
+However, **DON'T** move the keyboard by accessing directly thoses values !
+
+The keyboard is defined by its 4 borders (Left, Top, Right, Bottom).
+You can set and/or get the coordinate of any of the keyboard borders.
+
+##Moving the keyboard around
+
+###Move the keyboard from its top border
+    keyboard_set_from_top(Y_coordinate);
+
+
+###Move the keyboard from its bottom border
+    keyboard_set_from_bottom(Y_coordinate);
+
+###Move the keyboard from its left border
+    keyboard_set_from_left(X_coordinate);
+
+###Move the keyboard from its right border
+    keyboard_set_from_right(X_coordinate);
+
+##Getting keyboard coordinates
+
+###Get the top border
+    keyboard_get_bbox_top();
+
+###Get the bottom border
+    keyboard_get_bbox_bottom();
+
+###Get the left border
+    keyboard_get_bbox_left();
+
+###Get the left border
+    keyboard_get_bbox_right();
+
+#Visual customization
+The keyboard have many visual properties that can be customized.
+*I don't want to describe them all but here I am*
+
+##Keyboard Size
+    keyboard_resize(Width, Height);
+
+
 
 
