@@ -4,12 +4,17 @@
 
 ## Introduction
 
+<details>
+
+<summary></summary>
+
 I created this keyboard because there was no good *free* keyboard on the marketplace.
 
 Furthermore, paid extensions were for the **native keyboard**, which means we need a different keyboard for **both** IOS and Android, alongside the lack of customization they have.
 
 So I spent 20 initial hours creating this keyboard, and less than 4 a few days after to fix few bugs and optimize the project.
 
+</details>
 
 ## Features
 * Fast and easy to setup !
@@ -198,6 +203,7 @@ returns: color
 Without kidding, generating the surface is extremely inefficient.
 * Better handling of spriteless special keys like _ENTER_, _DELETE_...
 * Add a resizing system for keys with a sprite.
+* Make the keyboard works as a normal keyboard to allow seemless integration from a PC typing game !
 * And surely other things that I can't think of right now.
 
 
