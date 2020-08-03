@@ -1,8 +1,5 @@
 # Android/IOS keyboard for Game Maker Studio (1.4/2)
-
-<br>
-
-## Introduction
+# Introduction
 
 <details>
 
@@ -16,14 +13,30 @@ So I spent 20 initial hours creating this keyboard, and less than 4 a few days a
 
 </details>
 
-## Features
+
+
+# Features
+
+<details>
+
+<summary></summary>
+
 * Fast and easy to setup !
 * Highly customizable through simple and straightforward ~~functions~~ scripts !
 * Minimal performance impact on your game !
 * Supports up 5 keys at the same time !
 * Compatible both Android and IOS !
 
+</details>
+
+
+
 # Setup
+
+<details>
+
+<summary></summary>
+
 ### Create the keyboard
     keyboard_create(Left_position, Top_position, Width, Height);
 
@@ -44,7 +57,14 @@ So I spent 20 initial hours creating this keyboard, and less than 4 a few days a
 
 <br>
 
+</details>
+
 # Obtaining key presses
+
+<details>
+
+<summary></summary>
+
 ### Obtaining last pressed key
     keyboard_get_lastkey();
 
@@ -55,13 +75,21 @@ So I spent 20 initial hours creating this keyboard, and less than 4 a few days a
     keyboard_get_released_key();
 
 
+
 <br>
 
 ------------
 
 <br>
 
+</details>
+
 # Keyboard coordinates
+
+<details>
+
+<summary></summary>
+
 The x and y coordinates represents the top left of the keyboard.
 However, **DON'T** move the keyboard by accessing directly thoses values !
 
@@ -105,7 +133,15 @@ returns: real number
 <br>
 <br>
 
+</details>
+
+
 # Visual customization
+
+<details>
+
+<summary></summary>
+
 The keyboard have many visual properties that can be customized.
 *I don't want to describe them all but here I am*
 
@@ -198,13 +234,22 @@ returns: color
 <br>
 <br>
 
+</details>
+
 # Things to improve on the keyboard
+
+<details>
+
+<summary></summary>
+
 * Performance, always better performance !
 Without kidding, generating the surface is extremely inefficient.
 * Better handling of spriteless special keys like _ENTER_, _DELETE_...
 * Add a resizing system for keys with a sprite.
 * Make the keyboard works as a normal keyboard to allow seemless integration from a PC typing game !
 * And surely other things that I can't think of right now.
+
+</details>
 
 
 
