@@ -10,6 +10,7 @@ Furthermore, paid extensions were for the **native keyboard**, which means we ne
 
 So I spent 20 initial hours creating this keyboard, and less than 4 a few days after to fix few bugs and optimize the project.
 
+
 ## Features
 * Fast and easy to setup !
 * Highly customizable through simple and straightforward ~~functions~~ scripts !
@@ -21,7 +22,7 @@ So I spent 20 initial hours creating this keyboard, and less than 4 a few days a
 ### Create the keyboard
     keyboard_create(Left_position, Top_position, Width, Height);
 
-This function creates a keyboard which 
+[Then customize it with to get the design you want.](#visual-customization)
 
 ### Get keyboard text
     keyboard_get_text();
@@ -95,6 +96,9 @@ returns: real number
 ### Get the left border
     keyboard_get_bbox_right();
 returns: real number
+
+<br>
+<br>
 
 # Visual customization
 The keyboard have many visual properties that can be customized.
@@ -186,10 +190,15 @@ returns: nothing
 returns: color
 
 
+<br>
+<br>
 
-
-
-
+# Things to improve on the keyboard
+* Performance, always better performance !
+Without kidding, generating the surface is extremely inefficient.
+* Better handling of spriteless special keys like _ENTER_, _DELETE_...
+* Add a resizing system for keys with a sprite.
+* And surely other things that I can't think of right now.
 
 
 
