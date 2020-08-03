@@ -97,6 +97,11 @@ The keyboard is defined by its 4 borders (Left, Top, Right, Bottom).
 You can set and/or get the coordinate of any of the keyboard borders.
 
 ## Moving the keyboard around
+
+<details>
+
+<summary></summary>
+
 ### Move the keyboard from its top border
     keyboard_set_from_top(Y_coordinate);
 returns: nothing
@@ -113,7 +118,14 @@ returns: nothing
     keyboard_set_from_right(X_coordinate);
 returns: nothing
 
+</details>
+
 ## Getting keyboard coordinates
+
+<details>
+
+<summary></summary>
+
 ### Get the top border
     keyboard_get_bbox_top();
 returns: real number
@@ -126,12 +138,14 @@ returns: real number
     keyboard_get_bbox_left();
 returns: real number
 
-### Get the left border
+### Get the right border
     keyboard_get_bbox_right();
 returns: real number
 
 <br>
 <br>
+
+</details>
 
 </details>
 
