@@ -45,7 +45,9 @@ This function creates a keyboard which
 
 
 <br>
+
 ------------
+
 <br>
 
 # Keyboard coordinates
