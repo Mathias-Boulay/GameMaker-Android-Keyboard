@@ -1,6 +1,7 @@
 # Android/IOS keyboard for Game Maker Studio (1.4/2)
 <br>
 ## Introduction
+
 I created this keyboard because there was no good *free* keyboard on the marketplace.
 
 Furthermore, paid extensions were for the **native keyboard**, which means we need a different keyboard for **both** IOS and Android, alongside the lack of customization they have.
