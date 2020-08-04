@@ -1,4 +1,4 @@
-# Android/IOS keyboard for Game Maker Studio (1.4/2)
+# Android/IOS keyboard for Game Maker Studio (1.4/2 ?)
 # Introduction
 
 <details>
@@ -343,8 +343,9 @@ If desired, you can set the offset on each axis individually.
 
 <summary></summary>
 
+* Check if it works with GM 2 I guess, or port it for GM 2 if it doesn't
 * Performance, always better performance !
-Without kidding, generating the surface is extremely inefficient.
+Without kidding, drawing with round_rect on the surface is extremely inefficient.
 * Better handling of spriteless special keys like _ENTER_, _DELETE_...
 * Add a resizing system for keys with a sprite.
 * Make the keyboard works as a normal keyboard to allow seemless integration from a PC typing game !
