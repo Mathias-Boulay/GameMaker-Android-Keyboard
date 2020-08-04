@@ -10,16 +10,16 @@ with(object_keyboard){
     var Y_position;
     
     Y_position = y;
-    for(i=0;i<array_height_2d(Selected_set);i+=1){
+    for(i=0; i < array_height_2d(Selected_set); i+=1){
         X_position = x;
-        for(j=0;j<array_length_2d(Selected_set,i);j+=1){
+        for(j=0; j < array_length_2d(Selected_set,i); j+=1){
         
             
             This_key = instance_create(0,0,object_keyboard_key);
             This_key.Key_value = Selected_set[i,j];
             
             switch(This_key.Key_value){
-                //Here you can set custom Keycaps Width
+                //Here you can set custom Keycaps width and use a sprite
                 case "ENTER":
                     // 1.5 time the width;
                     This_key.Width =  Keycaps_width * 1.5;
