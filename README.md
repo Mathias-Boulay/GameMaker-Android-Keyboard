@@ -37,13 +37,14 @@ So I spent 20 initial hours creating this keyboard, and less than 4 a few days a
 
 <summary></summary>
 
-&ensp; ### Create the keyboard
+### Create the keyboard
     keyboard_create(Left_position, Top_position, Width, Height);
 
 [Then customize it with to get the design you want.](#visual-customization)
 
 ### Get keyboard text
     keyboard_get_text();
+**returns:** String
 
 ### Clear keyboard text
     keyboard_clear_text();
@@ -67,12 +68,15 @@ So I spent 20 initial hours creating this keyboard, and less than 4 a few days a
 
 ### Obtaining last pressed key
     keyboard_get_lastkey();
+**returns:** String
 
 ### Obtaining pressed key
     keyboard_get_pressed_key();
+**returns:** String
 
 ### Obtaining released key
     keyboard_get_released_key();
+**returns:** String
 
 
 
@@ -104,19 +108,15 @@ You can set and/or get the coordinate of any of the keyboard borders.
 
 ### Move the keyboard from its top border
     keyboard_set_from_top(Y_coordinate);
-returns: nothing
 
 ### Move the keyboard from its bottom border
     keyboard_set_from_bottom(Y_coordinate);
-returns: nothing
 
 ### Move the keyboard from its left border
     keyboard_set_from_left(X_coordinate);
-returns: nothing
 
 ### Move the keyboard from its right border
     keyboard_set_from_right(X_coordinate);
-returns: nothing
 
 </details>
 
@@ -128,24 +128,27 @@ returns: nothing
 
 ### Get the top border
     keyboard_get_bbox_top();
-returns: real number
+**returns:** real number
 
 ### Get the bottom border
     keyboard_get_bbox_bottom();
-returns: real number
+**returns:** real number
 
 ### Get the left border
     keyboard_get_bbox_left();
-returns: real number
+**returns:** real number
 
 ### Get the right border
     keyboard_get_bbox_right();
-returns: real number
-
-<br>
-<br>
+**returns:** real number
 
 </details>
+
+<br>
+
+------------
+
+<br>
 
 </details>
 
@@ -172,10 +175,10 @@ The keyboard have many visual properties that can be customized.
 
 ### Get keyboard size
     keyboard_get_width();
-returns: real number
+**returns:** real number
 
     keyboard_get_height();
-returns: real number
+**returns:** real number
 
 <br>
 
@@ -189,17 +192,17 @@ returns: real number
 
 ### Background state
     keyboard_set_background_visible(Boolean);
-returns: nothing
+    
+&ensp;
 
     keyboard_get_background_visible();
-returns: boolean
+**returns:** boolean
 
 ### Background color
     keyboard_set_background_color(Color);
-returns: nothing
 
     keyboard_get_background_color();
-returns: color
+**returns:** color
 
 </details>
 
@@ -216,10 +219,11 @@ returns: color
 <summary></summary>
 
     keyboard_set_font(Font);
-returns: nothing
+    
+&ensp;
 
     keyboard_get_font();
-returns: Font index
+**returns:** Font index
 
 </details>
 
@@ -230,10 +234,11 @@ returns: Font index
 <summary></summary>
 
      keyboard_set_text_color(Color);
-returns: nothing
+     
+ &ensp;
 
     keyboard_get_text_color();
-returns: color
+**returns:** color
 
 </details>
 
@@ -252,7 +257,6 @@ returns: color
 <summary></summary>
 
     keyboard_set_keycaps_visible(boolean);
-returns: nothing
 
 </details>
 
@@ -263,13 +267,11 @@ returns: nothing
 <summary></summary>
 
     keyboard_set_keycaps_radius(real_number);
-returns: nothing
 
 If desired, you can set the radius on each axis individually.
 
     keyboard_set_keycaps_x_radius(Radius);
 	keyboard_set_keycaps_y_radius(Radius);
-returns: nothing
 
 </details>
 
@@ -280,13 +282,11 @@ returns: nothing
 <summary></summary>
 
     keyboard_set_keycaps_offset(Offset);
-returns: nothing
 
 If desired, you can set the offset on each axis individually.
 
     keyboard_set_keycaps_x_offset(Offset);
 	keyboard_set_keycaps_y_offset(Offset);
-returns: nothing
 
 </details>
 
@@ -303,10 +303,11 @@ returns: nothing
 <summary></summary>
 
     keyboard_set_keycaps_color(Color);
-returns: nothing
+    
+&ensp;
 
     keyboard_get_keycaps_color();
-returns: color
+**returns:** color
 
 </details>
 
@@ -317,20 +318,22 @@ returns: color
 <summary></summary>
 
     keyboard_set_keycaps_pressed_color(Color);
-returns: nothing
+&ensp;
 
     keyboard_get_keycaps_pressed_color();
-returns: color
+**returns:** color
 
+</details>
+
+</details>
+
+</details>
 
 <br>
+
+------------
+
 <br>
-
-</details>
-
-</details>
-
-</details>
 
 </details>
 
