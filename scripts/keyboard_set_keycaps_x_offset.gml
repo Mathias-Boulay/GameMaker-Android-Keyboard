@@ -1,4 +1,4 @@
-///keyboard_set_x_offset(Real)
+///keyboard_set_keycaps_x_offset(Real)
 
 //This function sets HALF the horizontal distance between keycaps.
 //Why half ? Because this sets the space around 1 key.

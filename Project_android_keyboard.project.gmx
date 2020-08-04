@@ -55,12 +55,12 @@
         </scripts>
         <scripts name="Visual Properties">
           <scripts name="Set Visual Properties">
-            <script>scripts\keyboard_set_keycap_radius.gml</script>
-            <script>scripts\keyboard_set_keycap_x_radius.gml</script>
-            <script>scripts\keyboard_set_keycap_y_radius.gml</script>
-            <script>scripts\keyboard_set_offset.gml</script>
-            <script>scripts\keyboard_set_x_offset.gml</script>
-            <script>scripts\keyboard_set_y_offset.gml</script>
+            <script>scripts\keyboard_set_keycaps_radius.gml</script>
+            <script>scripts\keyboard_set_keycaps_x_radius.gml</script>
+            <script>scripts\keyboard_set_keycaps_y_radius.gml</script>
+            <script>scripts\keyboard_set_keycaps_offset.gml</script>
+            <script>scripts\keyboard_set_keycaps_x_offset.gml</script>
+            <script>scripts\keyboard_set_keycaps_y_offset.gml</script>
             <script>scripts\keyboard_set_background_color.gml</script>
             <script>scripts\keyboard_set_keycaps_color.gml</script>
             <script>scripts\keyboard_set_keycaps_pressed_color.gml</script>

@@ -1,4 +1,4 @@
-///keyboard_set_keycap_x_radius(Radius);
+///keyboard_set_keycaps_x_radius(Radius);
 
 //This functions sets the x radius of the keycaps layer;
 
