@@ -5,12 +5,6 @@
 object_keyboard.Keyboard_lastkey = argument0;
 
 switch(argument0){
-    
-    case "CHANGE LAYOUT":
-        //We have to make the keyboard change it's set ?
-        //Maybe I should remove the key.
-        
-        break;
         
     case "OTHER":
         //Switch to the other panel with numbers and all
